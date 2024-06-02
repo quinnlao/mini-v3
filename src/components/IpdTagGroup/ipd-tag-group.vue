@@ -122,31 +122,21 @@
 </template>
 
 <script setup>
-import ElButton from 'packages/button/index.js';
-import ElInput from 'packages/input/index.js';
-import vClickOutOfRange from 'packages/ipd-tag-group/src/assit-directives/click-out-of-range.js';
+import vClickOutOfRange from '@/components/IpdTagGroup/directives/clickOutOfRange.js';
 import {
   createContextMenu, hideMenu, showMenu,
-} from 'src/components/IpdTagGroup/contextMenu.js';
+} from '@/components/IpdTagGroup/directives/contextMenu.js';
 import {
   TAG_GROUP_INNER_SIZE_MAP,
-} from 'packages/ipd-tag-group/src/config.js';
-import ElTag from 'packages/tag/index.js';
-import ElTooltip from 'packages/tooltip/index.js';
-// import vOnlyClick from 'src/directives/only-click.js';
-import vRangeSelect from 'src/directives/range-select.js';
-import {
-  t,
-} from 'src/locale/index.js';
-import {
-  globalConfig,
-} from 'src/utils/global-config.js';
+} from '@/components/IpdTagGroup/config.js';
+import vOnlyClick from '@/components/IpdTagGroup/directives/onlyClick.js';
+import vRangeSelect from '@/components/IpdTagGroup/directives/rangeSelect.js';
 import {
   isDefined,
   isObject,
 } from 'src/utils/types.js';
 import {
-  computed, inject, nextTick, onMounted, onUnmounted, ref, shallowRef, useSlots, watch,
+  computed, inject, nextTick, onMounted, onUnmounted, ref, shallowRef, useSlots, watch, defineProps
 } from 'vue';
 
 const props = defineProps({

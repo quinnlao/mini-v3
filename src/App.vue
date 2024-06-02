@@ -1,14 +1,14 @@
 <template>
-  <HelloWorld/>
+  <Demo/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Demo from './temp/select-demo.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Demo,
   }
 }
 </script>
@@ -21,5 +21,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  margin-left: 0;
+  padding: 0;
 }
 </style>

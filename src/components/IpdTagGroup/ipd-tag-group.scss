@@ -1,0 +1,110 @@
+@include ipd(tag-group) {
+  width: 100%;
+  height: 100%;
+  cursor: default;
+
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+
+  @include e(wrapper){
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    flex-wrap: wrap;
+    .el-tag {
+      margin: 2px 0 2px 4px;
+      user-select: none;
+      max-width: 96%;
+    }
+    .ipd-add-tag-input {
+      display: inline-block;
+      margin-left: 4px;
+      flex: 0 0 120px;
+    }
+
+    .ipd-tag-group__add-button {
+      margin-left: 4px;
+      padding-top: 0;
+      padding-bottom: 0;
+      border: 1px dashed #bfbfbf;
+      color: #666666;
+    }
+  }
+
+  .collapse-number {
+    margin-top: 4px;
+    cursor: pointer;
+  }
+
+  @include m(medium){
+    .el-input__inner {
+      height: $--input-mini-height;
+      line-height: $--input-mini-height;
+    }
+  }
+
+  @include m((small, mini)){
+    .el-input__inner {
+      height: $--input-s-mini-height;
+      line-height: $--input-s-mini-height;
+    }
+  }
+
+  @include m(s-mini){
+    .el-input__inner {
+      height: $--input-s-mini-height;
+      line-height: $--input-s-mini-height;
+    }
+  }
+
+  @include e(context-menu) {
+    position: fixed;
+    border: $--border-base;
+    background-color: $--color-white;
+    list-style: none;
+    border-radius: 2px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+
+    &.hidden {
+      display: none;
+    }
+
+    li {
+      padding: 0 12px;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.1s;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background-color: #e8f4ff;
+        color: #46a6ff;
+      }
+
+      &:active {
+        background-color: #f0f2f7;
+      }
+
+      > div {
+        margin-left: 8px;
+        text-align: right;
+        color: #999999;
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import vOnlyClick from '@/components/IpdTagGroup/directives/onlyClick.js';
+import vOnlyClick from '@/utils/directives/onlyClick.js';
 
 export default {
   directives: {

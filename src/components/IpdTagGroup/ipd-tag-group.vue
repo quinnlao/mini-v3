@@ -122,15 +122,15 @@
 </template>
 
 <script setup>
-import vClickOutOfRange from '@/components/IpdTagGroup/directives/clickOutOfRange.js';
+import vClickOutOfRange from '@/utils/directives/clickOutOfRange.js';
 import {
   createContextMenu, hideMenu, showMenu,
-} from '@/components/IpdTagGroup/directives/contextMenu.js';
+} from '@/utils/directives/contextMenu.js';
 import {
   TAG_GROUP_INNER_SIZE_MAP,
 } from '@/components/IpdTagGroup/config.js';
-import vOnlyClick from '@/components/IpdTagGroup/directives/onlyClick.js';
-import vRangeSelect from '@/components/IpdTagGroup/directives/rangeSelect.js';
+import vOnlyClick from '@/utils/directives/onlyClick.js';
+import vRangeSelect from '@/utils/directives/rangeSelect.js';
 import {
   isDefined,
   isObject,

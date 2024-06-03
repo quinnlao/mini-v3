@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Demo from './temp/select-demo.vue'
+import Demo from ''
 
 export default {
   name: 'App',

@@ -125,7 +125,7 @@
 import vClickOutOfRange from '@/utils/directives/clickOutOfRange.js';
 import {
   createContextMenu, hideMenu, showMenu,
-} from '@/utils/directives/contextMenu.js';
+} from '@/components/IpdTagGroup/contextMenu.js';
 import {
   TAG_GROUP_INNER_SIZE_MAP,
 } from '@/components/IpdTagGroup/config.js';
@@ -134,7 +134,7 @@ import vRangeSelect from '@/utils/directives/rangeSelect.js';
 import {
   isDefined,
   isObject,
-} from 'src/utils/types.js';
+} from '@/utils/types.js';
 import {
   computed, inject, nextTick, onMounted, onUnmounted, ref, shallowRef, useSlots, watch, defineProps, defineEmits, defineExpose
 } from 'vue';
@@ -280,7 +280,7 @@ const restTagsNumber = computed(() =>
  * @return {string}
  */
 const tagGroupSize = computed(() =>
-    props.size || (elFormItem || {}).size || globalConfig.size || '');
+    props.size || (elFormItem || {}).size || '');
 
 /**
  * tagGroup当前的全局tag背景色
@@ -366,6 +366,7 @@ const inputPosition = computed(() => {
   if (props.creatable) {
     return 'start';
   }
+  return '';
 });
 
 /**
@@ -564,7 +565,7 @@ const contextMenuOptions = computed(() => {
     copyMessage = customizedCopyOption.value?.name;
   }
   else {
-    copyMessage = t('el.ipdTagGroup.copyText');
+    copyMessage = 'el.ipdTagGroup.copyText';
   }
 
   const defaultMenuOptions = [
@@ -576,7 +577,7 @@ const contextMenuOptions = computed(() => {
       },
     },
     {
-      name: t('el.ipdTagGroup.deleteTag'),
+      name: 'el.ipdTagGroup.deleteTag',
       hotKey: 'Backspace',
       onClick () {
         if (selectedTags.value.length) {

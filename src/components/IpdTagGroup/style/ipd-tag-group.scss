@@ -1,6 +1,6 @@
-@import "var";
+@import "var.scss";
 
-@include ipd(tag-group) {
+.ipd-tag-group {
   width: 100%;
   height: 100%;
   cursor: default;
@@ -10,7 +10,7 @@
     border: none;
   }
 
-  @include e(wrapper){
+  .ipd-tag-group_wrapper){
     width: 100%;
     height: 100%;
     user-select: none;
@@ -43,28 +43,28 @@
     cursor: pointer;
   }
 
-  @include m(medium){
+  .ipd-tag-group--medium {
     .el-input__inner {
       height: $--input-mini-height;
       line-height: $--input-mini-height;
     }
   }
 
-  @include m((small, mini)){
+  .ipd-tag-group--small, .ipd-tag-group--mini {
     .el-input__inner {
       height: $--input-s-mini-height;
       line-height: $--input-s-mini-height;
     }
   }
 
-  @include m(s-mini){
+  .ipd-tag-group-s-mini){
     .el-input__inner {
       height: $--input-s-mini-height;
       line-height: $--input-s-mini-height;
     }
   }
 
-  @include e(context-menu) {
+  .ipd-tag-group__context-menu {
     position: fixed;
     border: $--border-base;
     background-color: $--color-white;

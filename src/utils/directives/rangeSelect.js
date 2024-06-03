@@ -1,6 +1,6 @@
-import {
-    PopupManager,
-} from 'src/utils/popup/index.js';
+// import {
+//     PopupManager,
+// } from 'src/utils/popup/index.js';
 
 // 选框初始样式
 const SELECTION_BOX_STYLE = `border: 1px solid #1183ED;
@@ -23,7 +23,7 @@ function createSelectionBox (startX, startY) {
     selectionBox.style.left = `${startX}px`;
     selectionBox.style.top = `${startY}px`;
     selectionBox.style.top = `${startY}px`;
-    selectionBox.style.zIndex = String(PopupManager.nextZIndex());
+    selectionBox.style.zIndex = String( 9999);
 
     return selectionBox;
 }

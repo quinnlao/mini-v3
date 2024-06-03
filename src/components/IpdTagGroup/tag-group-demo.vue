@@ -44,9 +44,9 @@
     }"
       @on-add="handleAdd"
   >
-    <!--    <template #create-input> -->
-    <!--      <el-button>ssss</el-button> -->
-    <!--    </template> -->
+        <template #create-input>
+          <el-button>ssss</el-button>
+        </template>
   </IpdTagGroup>
   <IpdTagGroup
       v-model="tagList"
@@ -68,9 +68,10 @@
 </template>
 
 <script>
-import ipdTagGroup from "@/components/tagGroup/TagGroup.vue";
+import ipdTagGroup from "@/components/IpdTagGroup/ipd-tag-group.vue";
 
 export default {
+  name: 'TagGroupDemo',
   components: {
     ipdTagGroup,
   },

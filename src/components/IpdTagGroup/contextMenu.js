@@ -1,6 +1,6 @@
-import {
-    PopupManager,
-} from 'src/utils/popup/index.js';
+// import {
+//     PopupManager,
+// } from 'src/utils/popup/index.js';
 /**
  * 展示右键菜单
  * @param {event} event 右键菜单事件
@@ -9,7 +9,7 @@ import {
 export function showMenu (event, contextMenu) {
     event.preventDefault();
     const menus = contextMenu;
-    menus.style.zIndex = PopupManager.nextZIndex();
+    menus.style.zIndex = 9999;
     menus.style.top = `${event.clientY}px`;
     menus.style.left = `${event.clientX}px`;
     menus.style.display = '';

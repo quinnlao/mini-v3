@@ -92,7 +92,7 @@ const handleBlur = () => {
  * @param {object} option
  */
 const selectOption = (option) => {
-  selectedOption.value = option.label;
+  searchQuery.value = option.label;
 };
 
 </script>

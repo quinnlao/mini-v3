@@ -34,7 +34,7 @@
               :size="TAG_GROUP_INNER_SIZE_MAP[tagGroupSize]"
               @click.stop="activeInput"
           >
-            {{ `+ ${t('el.ipdTagGroup.addNewTag')}` }}
+            {{ `+ ${'addNewTag'}` }}
           </ElButton>
         </slot>
       </template>
@@ -113,7 +113,7 @@
               :size="TAG_GROUP_INNER_SIZE_MAP[tagGroupSize]"
               @click.stop="activeInput"
           >
-            {{ `+ ${t('el.ipdTagGroup.addNewTag')}` }}
+            {{  `+ ${'addNewTag'}` }}
           </ElButton>
         </slot>
       </template>
@@ -555,6 +555,7 @@ const handleCopy = () => {
   selectedTagIndex.value = [];
   // 复制结束后移除自定义菜单
   removeContextMenu();
+  document.body.removeChild(textArea);
 };
 
 // 自定义菜单选项
@@ -565,7 +566,7 @@ const contextMenuOptions = computed(() => {
     copyMessage = customizedCopyOption.value?.name;
   }
   else {
-    copyMessage = 'el.ipdTagGroup.copyText';
+    copyMessage = '复制选中标签';
   }
 
   const defaultMenuOptions = [
@@ -577,7 +578,7 @@ const contextMenuOptions = computed(() => {
       },
     },
     {
-      name: 'el.ipdTagGroup.deleteTag',
+      name: '删除选中标签',
       hotKey: 'Backspace',
       onClick () {
         if (selectedTags.value.length) {
@@ -743,6 +744,115 @@ defineExpose({
 });
 </script>
 
-<style scoped>
-@import "style/ipd-tag-group.scss";
+<style lang="scss">
+.ipd-tag-group {
+  width: 100%;
+  height: 100%;
+  cursor: default;
+
+  &:focus-visible {
+    outline: none;
+    border: none;
+  }
+
+  .ipd-tag-group__wrapper {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    flex-wrap: wrap;
+    .el-tag {
+      margin: 2px 0 2px 4px;
+      user-select: none;
+      max-width: 96%;
+    }
+    .ipd-add-tag-input {
+      display: inline-block;
+      margin-left: 4px;
+      flex: 0 0 120px;
+    }
+
+    .ipd-tag-group__add-button {
+      margin-left: 4px;
+      padding-top: 0;
+      padding-bottom: 0;
+      border: 1px dashed #bfbfbf;
+      color: #666666;
+    }
+  }
+
+  .collapse-number {
+    margin-top: 4px;
+    cursor: pointer;
+  }
+
+  .ipd-tag-group--medium {
+    .el-input__inner {
+      height: 28px;
+      line-height: 28px;
+    }
+  }
+
+  .ipd-tag-group--small, .ipd-tag-group--mini {
+    .el-input__inner {
+      height: 24px;
+      line-height: 24px;
+    }
+  }
+
+  .ipd-tag-group-s-mini {
+    .el-input__inner {
+      height: 24px;
+      line-height: 24px;
+    }
+  }
+}
+
+.ipd-tag-group__context-menu {
+  position: fixed;
+  border: 1px solid #ccc;
+  background-color: #FFFFFF;
+  list-style: none;
+  border-radius: 2px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+
+  &.hidden {
+    display: none;
+  }
+
+  li {
+    padding: 0 12px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.1s;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: #e8f4ff;
+      color: #46a6ff;
+    }
+
+    &:active {
+      background-color: #f0f2f7;
+    }
+
+    > div {
+      margin-left: 8px;
+      text-align: right;
+      color: #999999;
+    }
+  }
+}
 </style>

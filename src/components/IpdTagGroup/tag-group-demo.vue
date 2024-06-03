@@ -68,12 +68,12 @@
 </template>
 
 <script>
-import ipdTagGroup from "@/components/IpdTagGroup/ipd-tag-group.vue";
+import IpdTagGroup from "@/components/IpdTagGroup/ipd-tag-group.vue";
 
 export default {
   name: 'TagGroupDemo',
   components: {
-    ipdTagGroup,
+    IpdTagGroup,
   },
   data () {
     return {

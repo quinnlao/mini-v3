@@ -3,7 +3,7 @@
     <!-- input-->
     <input
       type="text"
-      v-model="selectedOption"
+      v-model="searchQuery"
       @focus="handleFocus"
       @blur="handleBlur"
       class="select-input"
@@ -14,7 +14,7 @@
       class="select_dropdown-Menu"
     >
       <li
-        v-for="(item, index) in options"
+        v-for="(item, index) in filteredOptions"
         :key="index"
         class="select_dropdown-Menu-item"
         @click="selectOption(item)"
@@ -27,19 +27,52 @@
 </template>
 
 <script setup>
-import { defineProps, ref} from 'vue';
+import {computed, defineProps, ref, watch} from 'vue';
 
 const props = defineProps({
+  modelValue: {
+    type: [String, Number],
+    required: true,
+  },
   options: {
     type: Array,
     default: () => [],
     required: true,
+  },
+  filterMethod: {
+    type: Function,
   }
 });
 
-const selectedOption = ref('');
+const searchQuery = ref('');
 const visible = ref(false);
 const options = ref([...props.options]);
+
+/**
+ *
+ * @type {ComputedRef<unknown>}
+ */
+const filteredOptions = computed(() => {
+  const query = searchQuery.value.toLowerCase();
+  if (props.filterMethod) {
+    return options.value.filter((option) => props.filterMethod(option));
+  }
+  return options.value.filter((option) =>
+      option?.label.toLowerCase().includes(query));
+});
+
+watch(
+    () => props.modelValue,
+    (newValue) => {
+      // 外部组件更改 modelValue 时，输入框中显示的内容也会相应更新
+      const selectedOption = options.value.find(option =>
+        option?.value === newValue)
+      searchQuery.value = selectedOption
+          ? selectedOption?.label
+          : '';
+    },
+    {immediate: true,}
+)
 
 const toggleMenu = () => {
   visible.value = true;
@@ -48,6 +81,7 @@ const handleFocus = () => {
   toggleMenu();
 };
 const handleBlur = () => {
+  // 延迟执行失焦回调，确保menuItem的点击事件可以触发；
   setTimeout(() => {
     visible.value = false;
   }, 2000)

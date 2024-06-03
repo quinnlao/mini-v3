@@ -136,7 +136,7 @@ import {
   isObject,
 } from 'src/utils/types.js';
 import {
-  computed, inject, nextTick, onMounted, onUnmounted, ref, shallowRef, useSlots, watch, defineProps
+  computed, inject, nextTick, onMounted, onUnmounted, ref, shallowRef, useSlots, watch, defineProps, defineEmits, defineExpose
 } from 'vue';
 
 const props = defineProps({
@@ -741,3 +741,7 @@ defineExpose({
   name: 'IpdTagGroup',
 });
 </script>
+
+<style scoped>
+@import "style/ipd-tag-group.scss";
+</style>

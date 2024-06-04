@@ -25,13 +25,13 @@
               ref="inputRef"
               v-model="newTag"
               class="multi-add-tag-input"
-              :size="TAG_GROUP_INNER_SIZE_MAP[tagGroupSize]"
+              :size="TAG_GROUP_INPUT_SIZE_MAP[tagGroupSize]"
               @keyup.enter="addTag"
           />
           <ElButton
               v-else
               class="multi-tag-group__add-button"
-              :size="TAG_GROUP_INNER_SIZE_MAP[tagGroupSize]"
+              :size="TAG_GROUP_BUTTON_SIZE_MAP[tagGroupSize]"
               @click.stop="activeInput"
           >
             {{ `+ ${'addNewTag'}` }}
@@ -104,13 +104,13 @@
               ref="inputRef"
               v-model="newTag"
               class="multi-add-tag-input"
-              :size="TAG_GROUP_INNER_SIZE_MAP[tagGroupSize]"
+              :size="TAG_GROUP_INPUT_SIZE_MAP[tagGroupSize]"
               @keyup.enter="addTag"
           />
           <ElButton
               v-else
               class="multi-tag-group__add-button"
-              :size="TAG_GROUP_INNER_SIZE_MAP[tagGroupSize]"
+              :size="TAG_GROUP_BUTTON_SIZE_MAP[tagGroupSize]"
               @click.stop="activeInput"
           >
             {{  `+ ${'addNewTag'}` }}
@@ -127,7 +127,8 @@ import {
   createContextMenu, hideMenu, showMenu,
 } from '@/components/MultiTagGroup/contextMenu.js';
 import {
-  TAG_GROUP_INNER_SIZE_MAP,
+  TAG_GROUP_BUTTON_SIZE_MAP,
+  TAG_GROUP_INPUT_SIZE_MAP
 } from '@/components/MultiTagGroup/config.js';
 import vOnlyClick from '@/utils/directives/onlyClick.js';
 import vRangeSelect from '@/utils/directives/rangeSelect.js';
@@ -744,7 +745,7 @@ defineExpose({
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .multi-tag-group {
   width: 100%;
   height: 100%;

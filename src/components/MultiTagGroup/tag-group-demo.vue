@@ -5,7 +5,7 @@
       :collapse-tag-count="3"
       creatable
       editable
-      size="medium"
+      size="default"
       style="width: 50%"
       :tag-props="{
       label: 'name',
@@ -23,7 +23,7 @@
       creatable
       editable
       size="small"
-      style="width: 50%"
+      style="width: 50%;margin-top: 50px"
       :tag-props="{
       label: 'name',
     }"
@@ -37,7 +37,7 @@
       direction: 'end',
     }"
       editable
-      size="s-mini"
+      size="large"
       style="width: 50%;margin-top: 50px"
       :tag-props="{
       label: 'name',
@@ -58,7 +58,7 @@
       direction: 'end',
     }"
       editable
-      size="mini"
+      size="small"
       style="width: 50%;margin-top: 50px"
       :tag-props="{
       label: 'name',
@@ -80,12 +80,12 @@ export default {
       tagList: [
         {
           name: '标签一',
-          type: '',
+          type: 'danger',
           key: 1,
         },
         {
-          name: '标签二标签二标签二标签二标签二标签二标签二标签二标签二标签二',
-          type: 'peacock',
+          name: '标签二标签二标签二',
+          type: 'info',
           key: 2,
         },
         {
@@ -100,7 +100,7 @@ export default {
         },
         {
           name: '标签五',
-          type: 'peachy',
+          type: 'info',
           key: 5,
         }
       ],
@@ -113,8 +113,8 @@ export default {
           closable: false,
         },
         {
-          name: '标签二标签二标签二标签二标签二标签二标签二标签二标签二标签二',
-          type: 'peacock',
+          name: '标签二标签二标签二',
+          type: 'info',
           key: 2,
         },
         {
@@ -129,7 +129,7 @@ export default {
         },
         {
           name: '标签五',
-          type: 'peachy',
+          type: 'info',
           key: 5,
         }
       ],

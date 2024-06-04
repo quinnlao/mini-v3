@@ -30,7 +30,7 @@ export function hideMenu (contextMenu) {
 export const createContextMenu = (options) => {
     function createMenu () {
         const menu = document.createElement('ul');
-        menu.classList.add('ipd-tag-group__context-menu');
+        menu.classList.add('multi-tag-group__context-menu');
         menu.style.cssText = 'display: none';
         const {
             menus,

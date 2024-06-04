@@ -2,8 +2,8 @@
   <div
       ref="tagGroupRef"
       v-click-out-of-range="handleTagGroupBlur"
-      class="ipd-tag-group"
-      :class="`ipd-tag-group--${tagGroupSize}`"
+      class="multi-tag-group"
+      :class="`multi-tag-group--${tagGroupSize}`"
       tabindex="1"
       @contextmenu="handleContextMenu"
       @keydown.backspace="handleBackSpace"
@@ -16,7 +16,7 @@
         selector: '.selectable',
         callback: handleRangeSelection,
       }"
-        class="ipd-tag-group__wrapper"
+        class="multi-tag-group__wrapper"
     >
       <template v-if="inputPosition === 'start'">
         <slot name="create-input">
@@ -24,13 +24,13 @@
               v-if="inputActivated"
               ref="inputRef"
               v-model="newTag"
-              class="ipd-add-tag-input"
+              class="multi-add-tag-input"
               :size="TAG_GROUP_INNER_SIZE_MAP[tagGroupSize]"
               @keyup.enter="addTag"
           />
           <ElButton
               v-else
-              class="ipd-tag-group__add-button"
+              class="multi-tag-group__add-button"
               :size="TAG_GROUP_INNER_SIZE_MAP[tagGroupSize]"
               @click.stop="activeInput"
           >
@@ -103,13 +103,13 @@
               v-if="inputActivated"
               ref="inputRef"
               v-model="newTag"
-              class="ipd-add-tag-input"
+              class="multi-add-tag-input"
               :size="TAG_GROUP_INNER_SIZE_MAP[tagGroupSize]"
               @keyup.enter="addTag"
           />
           <ElButton
               v-else
-              class="ipd-tag-group__add-button"
+              class="multi-tag-group__add-button"
               :size="TAG_GROUP_INNER_SIZE_MAP[tagGroupSize]"
               @click.stop="activeInput"
           >
@@ -125,10 +125,10 @@
 import vClickOutOfRange from '@/utils/directives/clickOutOfRange.js';
 import {
   createContextMenu, hideMenu, showMenu,
-} from '@/components/IpdTagGroup/contextMenu.js';
+} from '@/components/MultiTagGroup/contextMenu.js';
 import {
   TAG_GROUP_INNER_SIZE_MAP,
-} from '@/components/IpdTagGroup/config.js';
+} from '@/components/MultiTagGroup/config.js';
 import vOnlyClick from '@/utils/directives/onlyClick.js';
 import vRangeSelect from '@/utils/directives/rangeSelect.js';
 import {
@@ -740,12 +740,12 @@ onUnmounted(() => {
 
 // 显式对外暴露公开实例
 defineExpose({
-  name: 'IpdTagGroup',
+  name: 'MultiTagGroup',
 });
 </script>
 
-<style lang="scss">
-.ipd-tag-group {
+<style lang="scss" scoped>
+.multi-tag-group {
   width: 100%;
   height: 100%;
   cursor: default;
@@ -755,7 +755,7 @@ defineExpose({
     border: none;
   }
 
-  .ipd-tag-group__wrapper {
+  .multi-tag-group__wrapper {
     width: 100%;
     height: 100%;
     user-select: none;
@@ -768,13 +768,13 @@ defineExpose({
       user-select: none;
       max-width: 96%;
     }
-    .ipd-add-tag-input {
+    .multi-add-tag-input {
       display: inline-block;
       margin-left: 4px;
       flex: 0 0 120px;
     }
 
-    .ipd-tag-group__add-button {
+    .multi-tag-group__add-button {
       margin-left: 4px;
       padding-top: 0;
       padding-bottom: 0;
@@ -788,21 +788,21 @@ defineExpose({
     cursor: pointer;
   }
 
-  .ipd-tag-group--medium {
+  .multi-tag-group--medium {
     .el-input__inner {
       height: 28px;
       line-height: 28px;
     }
   }
 
-  .ipd-tag-group--small, .ipd-tag-group--mini {
+  .multi-tag-group--small, .multi-tag-group--mini {
     .el-input__inner {
       height: 24px;
       line-height: 24px;
     }
   }
 
-  .ipd-tag-group-s-mini {
+  .multi-tag-group-s-mini {
     .el-input__inner {
       height: 24px;
       line-height: 24px;
@@ -810,7 +810,7 @@ defineExpose({
   }
 }
 
-.ipd-tag-group__context-menu {
+.multi-tag-group__context-menu {
   position: fixed;
   border: 1px solid #ccc;
   background-color: #FFFFFF;

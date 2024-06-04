@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Demo from './components/IpdTagGroup/tag-group-demo.vue'
+import Demo from '@/components/MultiTagGroup/tag-group-demo.vue'
 
 export default {
   name: 'App',

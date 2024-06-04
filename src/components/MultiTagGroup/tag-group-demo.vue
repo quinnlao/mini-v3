@@ -1,5 +1,5 @@
 <template>
-  <IpdTagGroup
+  <MultiTagGroup
       v-model="tagList"
       closable
       :collapse-tag-count="3"
@@ -15,8 +15,8 @@
     <!--    <template #create-input> -->
     <!--      <el-button>ssss</el-button> -->
     <!--    </template> -->
-  </IpdTagGroup>
-  <IpdTagGroup
+  </MultiTagGroup>
+  <MultiTagGroup
       v-model="tagList1"
       closable
       :collapse-tag-count="3"
@@ -29,7 +29,7 @@
     }"
       @on-add="handleAdd"
   />
-  <IpdTagGroup
+  <MultiTagGroup
       v-model="tagList1"
       closable
       :collapse-tag-count="3"
@@ -47,8 +47,8 @@
         <template #create-input>
           <el-button>ssss</el-button>
         </template>
-  </IpdTagGroup>
-  <IpdTagGroup
+  </MultiTagGroup>
+  <MultiTagGroup
       v-model="tagList"
       closable
       :collapse-tag-tip="{
@@ -68,12 +68,12 @@
 </template>
 
 <script>
-import IpdTagGroup from "@/components/IpdTagGroup/ipd-tag-group.vue";
+import MultiTagGroup from "@/components/MultiTagGroup/multi-tag-group.vue";
 
 export default {
   name: 'TagGroupDemo',
   components: {
-    IpdTagGroup,
+    MultiTagGroup,
   },
   data () {
     return {

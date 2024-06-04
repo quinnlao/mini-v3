@@ -1,5 +1,5 @@
 ## 一个可编辑的tag-group
-![这是图片](/showCase.gif "Magic Gardens")
+![这是图片](/showCase.gif "Magic Gardens")(https://github.com/quinnlao/mini-v3/blob/develop/src/components/MultiTagGroup/showCase.gif)
 ### 有什么功能？
 - 通过绑定列表数据驱动控制标签渲染, 可以直接作为select子组件使用
 - 多个标签可折叠，并且控制其最大展示数量

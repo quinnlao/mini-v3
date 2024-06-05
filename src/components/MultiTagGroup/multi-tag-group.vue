@@ -125,11 +125,11 @@
 import vClickOutOfRange from '@/utils/directives/clickOutOfRange.js';
 import {
   createContextMenu, hideMenu, showMenu,
-} from '@/components/MultiTagGroup/contextMenu.js';
+} from '@/components/MultiTagGroup/assistance/contextMenu.js';
 import {
   TAG_GROUP_BUTTON_SIZE_MAP,
   TAG_GROUP_INPUT_SIZE_MAP
-} from '@/components/MultiTagGroup/config.js';
+} from '@/components/MultiTagGroup/assistance/config.js';
 import vOnlyClick from '@/utils/directives/onlyClick.js';
 import vRangeSelect from '@/utils/directives/rangeSelect.js';
 import {

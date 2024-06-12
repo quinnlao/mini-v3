@@ -12,7 +12,7 @@ import { isUndefined, isDefined } from 'src/utils/types.js';
 import { ref, reactive, onMounted, onUnmounted, computed } from 'vue';
 
 export default {
-  name: 'ElAffix',
+  name: 'QAffix',
   props: {
     offsetTop: {
       type: Number,

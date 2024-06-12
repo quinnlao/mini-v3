@@ -22,7 +22,7 @@ import {
 } from 'src/utils/types.js';
 
 export default {
-  name: 'ElAffix',
+  name: 'QAffix',
   props: {
     offsetTop: {
       type: Number,
